@@ -65,5 +65,7 @@ private static void makeMove(char[][] board, char player) {
  private static boolean isValidMove(char[][] board, int row, int col) {
     return row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == ' ';
 }
+// Function to check if there is a winner
+private static boolean isWinner(char[][] board, char player) {
 }
     
