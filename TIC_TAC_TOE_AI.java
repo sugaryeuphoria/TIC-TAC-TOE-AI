@@ -51,5 +51,11 @@ private static void makeMove(char[][] board, char player) {
     Scanner scanner = new Scanner(System.in);
     int row, col;
 
+    // Get valid move from the player
+    do {
+        System.out.println("Player " + player + ", enter your move (row and column): ");
+        row = scanner.nextInt();
+        col = scanner.nextInt();
+    } while (!isValidMove(board, row, col));
 }
     }
