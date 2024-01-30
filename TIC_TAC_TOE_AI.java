@@ -88,5 +88,10 @@ private static boolean isBoardFull(char[][] board) {
     }
     return true;
 }
+// Function to find the best move using the minimax algorithm
+private static int[] findBestMove(char[][] board) {
+    int bestVal = Integer.MIN_VALUE;
+    int[] bestMove = {-1, -1};
+
 }
     
