@@ -51,14 +51,14 @@ public class TicTacToeAI {
 
     // Function for the player to make a move
     private static void makeMove(char[][] board, char player) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int row, col;
 
         // Get valid move from the player
         do {
             System.out.println("Player " + player + ", enter your move (row and column): ");
-            row = scanner.nextInt();
-            col = scanner.nextInt();
+            row = sc.nextInt();
+            col = sc.nextInt();
         } while (!isValidMove(board, row, col));
 
         // Update the board with the player's move
@@ -125,3 +125,97 @@ public class TicTacToeAI {
         int score = evaluate(board);
 
         // If the game is over, return the score
+        if (score == 10 || score == -10) {
+            return score;
+        }
+
+        // If there are no more moves, it's a draw
+        if (!isMovesLeft(board)) {
+            return 0;
+        }
+
+        // If it's the maximizing player's turn
+        if (isMaximizing) {
+            int best = Integer.MIN_VALUE;
+
+            // Traverse all cells, recursively call minimax for each move, and choose the maximum value
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (board[i][j] == ' ') {
+                        board[i][j] = 'O';
+                        best = Math.max(best, minimax(board, depth + 1, !isMaximizing));
+                        board[i][j] = ' '; // Undo the move
+                    }
+                }
+            }
+            return best;
+        } else {
+            int best = Integer.MAX_VALUE;
+
+            // Traverse all cells, recursively call minimax for each move, and choose the minimum value
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (board[i][j] == ' ') {
+                        board[i][j] = 'X';
+                        best = Math.min(best, minimax(board, depth + 1, !isMaximizing));
+                        board[i][j] = ' '; // Undo the move
+                    }
+                }
+            }
+            return best;
+        }
+    }
+
+    // Function to evaluate the current state of the board
+    private static int evaluate(char[][] board) {
+        // Check rows, columns, and diagonals for a winning state
+        for (int i = 0; i < 3; i++) {
+            // Check rows
+            if (board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
+                if (board[i][0] == 'O') {
+                    return 10; // AI wins
+                } else if (board[i][0] == 'X') {
+                    return -10; // Player X wins
+                }
+            }
+            // Check columns
+            if (board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
+                if (board[0][i] == 'O') {
+                    return 10; // AI wins
+                } else if (board[0][i] == 'X') {
+                    return -10; // Player X wins
+                }
+            }
+        }
+
+        // Check diagonals
+        if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
+            if (board[0][0] == 'O') {
+                return 10; // AI wins
+            } else if (board[0][0] == 'X') {
+                return -10; // Player X wins
+            }
+        }
+        if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
+            if (board[0][2] == 'O') {
+                return 10; // AI wins
+            } else if (board[0][2] == 'X') {
+                return -10; // Player X wins
+            }
+        }
+
+        return 0; // No winner yet
+    }
+
+    // Function to check if there are remaining moves on the board
+    private static boolean isMovesLeft(char[][] board) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == ' ') {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
