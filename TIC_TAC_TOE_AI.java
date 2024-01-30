@@ -8,5 +8,9 @@ public class TicTacToeAI {
 
          // Display the initial game board
          displayBoard(board);
+
+         // Game loop
+        while (true) {
+            if (currentPlayer == 'X') {
     }}
         
