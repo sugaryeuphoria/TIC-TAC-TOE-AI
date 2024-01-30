@@ -57,5 +57,11 @@ private static void makeMove(char[][] board, char player) {
         row = scanner.nextInt();
         col = scanner.nextInt();
     } while (!isValidMove(board, row, col));
+
+    // Update the board with the player's move
+    board[row][col] = player;
 }
-    }
+
+
+}
+    
