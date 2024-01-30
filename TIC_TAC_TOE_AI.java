@@ -13,4 +13,6 @@ public class TicTacToeAI {
         while (true) {
             if (currentPlayer == 'X') {
     }}
-        
+        // Player X makes a move
+        makeMove(board, currentPlayer);
+    } else {
