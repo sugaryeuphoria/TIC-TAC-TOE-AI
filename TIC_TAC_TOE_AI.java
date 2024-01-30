@@ -16,3 +16,7 @@ public class TicTacToeAI {
         // Player X makes a move
         makeMove(board, currentPlayer);
     } else {
+        // AI's turn (O)
+        int[] bestMove = findBestMove(board);
+        board[bestMove[0]][bestMove[1]] = currentPlayer;
+    }
