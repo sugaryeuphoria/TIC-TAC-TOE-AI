@@ -31,3 +31,9 @@ public class TicTacToeAI {
         System.out.println("It's a draw!");
         break;
     }
+     // Switch players
+     currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+    }
+}
+}
+    }
