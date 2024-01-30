@@ -20,3 +20,5 @@ public class TicTacToeAI {
         int[] bestMove = findBestMove(board);
         board[bestMove[0]][bestMove[1]] = currentPlayer;
     }
+    // Display the updated game board
+    displayBoard(board);
