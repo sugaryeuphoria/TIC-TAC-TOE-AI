@@ -99,5 +99,14 @@ private static int[] findBestMove(char[][] board) {
             board[i][j] = 'O';
             int moveVal = minimax(board, 0, false);
             board[i][j] = ' '; // Undo the move
+            if (moveVal > bestVal) {
+                bestMove[0] = i;
+                bestMove[1] = j;
+                bestVal = moveVal;
+            }
+        }
+    }
+}
+
 }
     
