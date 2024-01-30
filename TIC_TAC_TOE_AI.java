@@ -109,5 +109,8 @@ private static int[] findBestMove(char[][] board) {
 }
 return bestMove;
 }
+// Function implementing the minimax algorithm
+private static int minimax(char[][] board, int depth, boolean isMaximizing) {
+    int score = evaluate(board);
 }
     
