@@ -92,6 +92,12 @@ private static boolean isBoardFull(char[][] board) {
 private static int[] findBestMove(char[][] board) {
     int bestVal = Integer.MIN_VALUE;
     int[] bestMove = {-1, -1};
-
+ // Traverse all cells, evaluate minimax function for all empty cells, and return the cell with optimal value
+ for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+        if (board[i][j] == ' ') {
+            board[i][j] = 'O';
+            int moveVal = minimax(board, 0, false);
+            board[i][j] = ' '; // Undo the move
 }
     
