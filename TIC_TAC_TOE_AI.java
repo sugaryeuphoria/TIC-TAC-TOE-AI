@@ -77,5 +77,16 @@ private static boolean isWinner(char[][] board, char player) {
     return (board[0][0] == player && board[1][1] == player && board[2][2] == player) ||
     (board[0][2] == player && board[1][1] == player && board[2][0] == player);
 }
+// Function to check if the board is full (a draw)
+private static boolean isBoardFull(char[][] board) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (board[i][j] == ' ') {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 }
     
