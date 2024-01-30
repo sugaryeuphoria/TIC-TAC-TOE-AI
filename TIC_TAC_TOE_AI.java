@@ -107,6 +107,7 @@ private static int[] findBestMove(char[][] board) {
         }
     }
 }
-
+return bestMove;
+}
 }
     
