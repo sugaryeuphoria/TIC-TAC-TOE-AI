@@ -113,4 +113,5 @@ return bestMove;
 private static int minimax(char[][] board, int depth, boolean isMaximizing) {
     int score = evaluate(board);
 }
+ // If the game is over, return the score
     
