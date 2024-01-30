@@ -46,5 +46,10 @@ private static void displayBoard(char[][] board) {
         System.out.println("\n-------------");
     }
 }
+// Function for the player to make a move
+private static void makeMove(char[][] board, char player) {
+    Scanner scanner = new Scanner(System.in);
+    int row, col;
+
 }
     }
