@@ -61,7 +61,9 @@ private static void makeMove(char[][] board, char player) {
     // Update the board with the player's move
     board[row][col] = player;
 }
-
-
+ // Function to check if a move is valid
+ private static boolean isValidMove(char[][] board, int row, int col) {
+    return row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == ' ';
+}
 }
     
